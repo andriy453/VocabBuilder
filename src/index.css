@@ -1,18 +1,60 @@
 @import 'node_modules/modern-normalize/modern-normalize.css';
 
-body {
-  background-color: #000;
-  /* background-image: url('./assets/background.png'); */
-  background-size: auto 100%;
-  background-position: center center;
-  background-repeat: no-repeat;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
+
+:root{
+  --grean:#85AA9F;
+  --grean-hover:#A5C0B8;
+  --black:#121417;
+  --modal-beckdrop:#12141733;
+  --white:#FCFCFC;
+  --background: #F8F8F8;
+}
+@font-face {
+  font-display: swap;
+  font-family: 'FixelDisplay';
   font-style: normal;
-  color: #111111;
+  font-weight: 400;
+  src: url('./fonts/FixelDisplay-Regular.otf') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'FixelDisplay';
+  font-style: normal;
+  font-weight: 500;
+  src: url('./fonts/FixelDisplay-Medium.otf') format('woff2');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'FixelDisplay';
+  font-style: normal;
+  font-weight: 600;
+  src: url('./fonts/FixelDisplay-SemiBold.otf') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'FixelDisplay';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./fonts/FixelDisplay-Bold.otf') format('woff2');
+}
+body {
+  font-family: 'FixelDisplay', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  color: var(--black);
   width: 100%;
   height: 100vh;
   margin: 0;
+
+}
+@media screen and (min-width:768px) {
+  body {
+    background-image: url(../src/assets/Vector.png);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+  }
 }
 h1,
 h2,
@@ -21,7 +63,7 @@ h4,
 h5,
 h6,
 p {
-  margin-top: 0;
+  margin: 0;
 }
 a {
   text-decoration: none;

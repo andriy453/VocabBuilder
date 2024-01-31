@@ -2,50 +2,48 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeaderContainer = styled.div`
-  padding: 20px;
+  padding: 16px 0px;
+
+  @media screen and (min-width: 768px) {
+    padding: 20px 0px  ;
+  }
+  @media screen and (min-width: 768px) {
+    padding: 24px 0px  ;
+  }
 `;
 
 export const Navigation = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-
-export const StyledLink = styled(Link)`
-  padding: 8px 16px;
-  color: #ffffff; /* White text color */
-  text-shadow:
-    0 0 5px #00baff,
-    0 0 10px #00baff,
-    0 0 20px #00baff,
-    0 0 40px #00baff,
-    0 0 80px #00baff;
-  transition:
-    color 0.3s,
-    text-shadow 0.3s;
-
-  &:hover,
-  &:focus {
-    color: #00baff; /* Blue text color on hover/focus */
-    text-shadow:
-      0 0 5px #00baff,
-      0 0 10px #00baff,
-      0 0 20px #00baff,
-      0 0 40px #00baff,
-      0 0 80px #00baff;
+  justify-content: flex-start;
+  padding: 0px 16px;
+  @media screen and (min-width: 768px) {
+    padding: 0px  32px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding: 0px  100px;
   }
 `;
 
+export const StyledLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  gap: 0px 16px;
+`;
+
 export const IconWrapper = styled.svg`
-  width: ${(props) => props.size || '12px'};
-  height: ${(props) => props.size || '12px'};
-  fill: ${(props) => props.color || '#ffffff'};
-  display: inline-block;
-  margin-right: 5px;
-  box-shadow:
-    0 0 5px #00baff,
-    0 0 10px #00baff,
-    0 0 20px #00baff,
-    0 0 40px #00baff,
-    0 0 80px #00baff;
+  width: 36px;
+  height: 36px;
+`;
+export const LogoText = styled.p`
+  color: var(--black);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+  @media screen and (min-width: 768px) {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
 `;
