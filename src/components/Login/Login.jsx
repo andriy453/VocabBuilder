@@ -15,6 +15,8 @@ import {
   Erorr,
 } from './Login.styled';
 import sprite from '../../assets/sprite.svg'
+import { login } from '../../redux/Auth/operations';
+import { useDispatch } from 'react-redux';
 
 function Login({id}) {
   const validationSchema = Yup.object({
@@ -29,6 +31,8 @@ function Login({id}) {
       .required('Password is required'),
   });
 
+  const dispach = useDispatch();
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -36,7 +40,8 @@ function Login({id}) {
     },
     validationSchema: validationSchema,
     onSubmit: async (vasues) => {
-      console.log(vasues);
+      dispach((login({ email:vasues.email,
+        password: vasues.password,})))
     },
   });
   return (

@@ -15,6 +15,8 @@ import {
   Erorr,
 } from '../Login/Login.styled';
 import sprite from '../../assets/sprite.svg'
+import { register } from '../../redux/Auth/operations';
+import { useDispatch } from 'react-redux';
 
 function Register({id}) {
   const validationSchema = Yup.object({
@@ -25,11 +27,12 @@ function Register({id}) {
       .required('Email is required'),
     password: Yup.string()
       .min(6, 'Password must be at least 6 characters long')
-      .max(16, 'Password can be at most 16 characters long')
+      .max(7, 'Password can be at most 16 characters long')
       .matches(/^(?=.*[a-zA-Z]{6})(?=.*\d)[a-zA-Z\d]{7}$/, 'Error password')
       .required('Password is required'),
   });
 
+  const dispach = useDispatch();
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -38,7 +41,7 @@ function Register({id}) {
     },
     validationSchema: validationSchema,
     onSubmit: async (vasues) => {
-      console.log(vasues);
+      dispach(register({name:vasues.name,      email: vasues.email,password: vasues.password,}))
     },
   });
   return (

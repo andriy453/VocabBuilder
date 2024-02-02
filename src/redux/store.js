@@ -1,5 +1,5 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import { AuthSliceReducer } from './Auth/AuthSlice';
+import { AuthReducer } from './Auth/AuthSlice';
 import persistReducer from 'redux-persist/es/persistReducer';
 import storage from 'redux-persist/lib/storage';
 import persistStore from 'redux-persist/es/persistStore';
@@ -13,13 +13,13 @@ import {
 } from 'redux-persist';
 
 const rootReducer = combineReducers({
-  Auth: AuthSliceReducer,
+  Auth: AuthReducer,
 });
 
 const persistConfig = {
-  key: 'teachers',
+  key: 'Auth',
   storage,
-  whitelist: ['Auth'],
+  whitelist: 'Auth',
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

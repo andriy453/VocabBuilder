@@ -98,6 +98,12 @@ export const Button = styled.button`
   font-weight: 700;
   line-height: 1.5;
 
+  transition: background 300ms;
+
+  &:hover,:focus{
+    background-color:var(--grean-hover)
+  }
+
   @media screen and (min-width: 768px) {
     font-size: 18px;
   }

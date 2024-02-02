@@ -67,6 +67,7 @@ export const TextRegister = styled.p`
   }
 `;
 
+
 export const WelcomeImg = styled.img`
   width: 247px;
   height: 191px;
