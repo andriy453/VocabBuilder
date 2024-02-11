@@ -44,6 +44,6 @@ export const UserSvg = styled.svg`
     props.iconcolor ? 'rgb(133, 170, 159) ' : 'var(--white)'};
   @media screen and (min-width: 768px) {
     width: 24px;
-    height: 24px;
+    height: 24px; 
   }
 `;

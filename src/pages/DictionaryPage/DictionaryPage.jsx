@@ -1,10 +1,11 @@
-import { Container, Title, } from './DictionaryPage.styled';
+import { Container,  } from './DictionaryPage.styled';
 
 
+import Dashboard from '../../components/Dashboard/Dashboard';
 const DictionaryPage = () => {
   return (
     <Container>
-      <Title>dictionary Page</Title>
+    <Dashboard/>
     </Container>
   );
 };

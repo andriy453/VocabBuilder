@@ -4,12 +4,19 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://vocab-builder-backend.p.goit.global/api';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
+export const instance = axios.create({
+  baseURL: "https://vocab-builder-backend.p.goit.global/api/",
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
 const setAuthHeader = token => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  instance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
 const clearAuthHeader = () => {
-  axios.defaults.headers.common.Authorization = '';
+  instance.defaults.headers.common.Authorization = '';
 };
 
 const notifix = (errorCode) => {
@@ -35,7 +42,7 @@ export const register = createAsyncThunk(
     'auth/register',
     async (credentials, { rejectWithValue }) => {
       try {
-        const response = await axios.post('/users/signup', credentials);
+        const response = await instance.post('/users/signup', credentials);
         setAuthHeader(response.data.token);
         return response.data;
       } catch (error) {
@@ -49,7 +56,7 @@ export const register = createAsyncThunk(
     'auth/login',
     async (credentials, thunkAPI) => {
       try {
-        const response = await axios.post('/users/signin', credentials);
+        const response = await instance.post('/users/signin', credentials);
         setAuthHeader(response.data.token);
         return response.data;
       } catch (error) {
@@ -63,7 +70,7 @@ export const register = createAsyncThunk(
     'auth/logout',
     async (_, { rejectWithValue }) => {
       try {
-        await axios.post('/users/logout');
+        await instance.post('/users/logout');
         clearAuthHeader();
       } catch (error) {
         notifix(error.message, error.response?.status);
@@ -77,7 +84,7 @@ export const register = createAsyncThunk(
     'auth/refresh',
     async (_, thunkAPI) => {
       const state = thunkAPI.getState();
-      const persistedToken = state.auth.token;
+      const persistedToken = state.Auth.token;
   
       if (persistedToken === null) {
         return thunkAPI.rejectWithValue('Unable to fetch user');
@@ -85,7 +92,7 @@ export const register = createAsyncThunk(
   
       try {
         setAuthHeader(persistedToken);
-        const response = await axios.get('/users/current');
+        const response = await instance.get('/users/current');
         return response.data;
       } catch (error) {
         notifix(error.message, error.response?.status);
@@ -93,3 +100,5 @@ export const register = createAsyncThunk(
       }
     }
   );
+
+  export default instance;

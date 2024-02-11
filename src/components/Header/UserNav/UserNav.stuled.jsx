@@ -35,6 +35,8 @@ export const StyledLink = styled(Link)`
 
   @media screen and (min-width: 1440px) {
     color: var(--black);
+  color: ${({ activ }) =>  activ === 'active'  ? 'var(--white)': ' var(--black)' };
+  background-color:${({ activ }) =>  activ === 'active'  ? 'var(--grean)': 'transparent' };
 
   &:hover{
     background-color:var(--grean);
