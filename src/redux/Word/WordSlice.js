@@ -11,6 +11,7 @@ import {
   wordsEdit,
   wordsOwn,
   wordsStatistics,
+  wordsTasks
 } from "./operations";
 
 const handlePending = (state) => {
@@ -28,6 +29,7 @@ const initialState = {
   categories: [],
   result: [],
   statistics: null,
+  tacks:[],
   page: null,
   totalPages: null,
   perPage: null,
@@ -124,6 +126,11 @@ const WordSlice = createSlice({
         state.words = [action.payload, ...state.words];
 
         state.isLoggedIn = true;
+      }) 
+      .addCase(wordsTasks.pending, handlePending)
+      .addCase(wordsTasks.rejected, handleRejected)
+      .addCase(wordsTasks.fulfilled, (state, action) => {
+        state.tacks = [...action.payload.tasks];
       });
   },
 });
