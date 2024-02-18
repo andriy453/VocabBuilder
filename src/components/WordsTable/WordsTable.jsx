@@ -17,9 +17,9 @@ import {
 import sprite from "../../assets/sprite.svg";
 import { deleteWords, wordsAdd } from "../../redux/Word/operations";
 import { useDispatch } from "react-redux";
-// import ModalOpen from "../Modal/ModalOpen";
-// import { Modal } from "../Modal/Modal";
-// import EditWordForm from "../Modal/EditModal/EditModal";
+import ModalEdit from "../Modal/ModalEdit";
+import  Modal  from "../Modal/Modal";
+import EditWordForm from "../Modal/EditModal/EditModal";
 
 function WordsTable  ({
   columns,
@@ -33,34 +33,44 @@ function WordsTable  ({
     useTable({ columns, data });
   const dispatch = useDispatch();
 
-  // const [selectedRowIndexEdit, setSelectedRowIndexEdit] = useState(null);
-  // const [isOpen, setIsOpen] = useState(false);
+  const [selectedRowIndexEdit, setSelectedRowIndexEdit] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
   const [selectedRowIndex, setSelectedRowIndex] = useState(null);
-  // const [isOpenEdit, setIsOpenEdit] = useState(false);
+  const [isOpenEdit, setIsOpenEdit] = useState(false);
 
-  // const openModal = (rowIndex) => {
-  //   setSelectedRowIndex(rowIndex);
-  //   setIsOpen(true);
-  // };
+  const openModal = (rowIndex) => {
+    setSelectedRowIndex(rowIndex);
+    setIsOpen(true);
+  };
 
-  // const closeModal = () => {
-  //   setSelectedRowIndex(null);
-  //   setIsOpen(false);
-  // };
+  const closeModal = () => {
+    setSelectedRowIndex(null);
+    setIsOpen(false);
+  };
 
-  // const openModalEdit = (rowIndex) => {
-  //   setSelectedRowIndexEdit(rowIndex);
-  //   setIsOpenEdit(true);
-  // };
+  const openModalEdit = (rowIndex) => {
+    setSelectedRowIndexEdit(rowIndex);
+    setIsOpenEdit(true);
+  };
 
-  // const closeModalEdit = () => {
-  //   setSelectedRowIndexEdit(null);
-  //   setIsOpenEdit(false);
-  // };
+  const closeModalEdit = () => {
+    setSelectedRowIndexEdit(null);
+    setIsOpenEdit(false);
+  };
 
   const addWordToOwn = (id) => {
     dispatch(wordsAdd(id));
   };
+  const hendleDelite = (id) => {
+    dispatch(deleteWords(id.original._id))
+    closeModal()
+  }
+
+  const hendleOpen =async (id) => {
+
+ openModalEdit(id.id)
+
+}
 
   return (
     <>
@@ -111,34 +121,30 @@ function WordsTable  ({
                         </Button>
                       ) : (
                         <>
-                          {/* {isOpen ? (
+                          {isOpen ? (
                             <Button onClick={() => closeModal()}>
-                              <SvgDate>
-                                <use href={sprite + "#icon-date"}></use>
-                              </SvgDate>
+                           ...
                             </Button>
                           ) : (
                             <Button onClick={() => openModal(row.id)}>
-                              <SvgDate>
-                                <use href={sprite + "#icon-date"}></use>
-                              </SvgDate>
+                             ...
                             </Button>
-                          )} */}
+                          )}
                           {selectedRowIndex === row.id && (
-                            <ModalOpen closeModal={closeModal} isOpen={isOpen}>
-                              {isOpenEdit ? (
+                            <ModalEdit closeModal={closeModal} isOpen={isOpen}>
+                              {isOpenEdit & isOpen ?  (
                                 <ButtonModal onClick={() => closeModalEdit()}>
                                   <SvgModal>
-                                    <use href={sprite + "#icon-edit"}></use>
+                                    <use href={sprite + "#icon-edit-01"}></use>
                                   </SvgModal>
                                   Edit
                                 </ButtonModal>
                               ) : (
                                 <ButtonModal
-                                  onClick={() => openModalEdit(row.id)}
+                                  onClick={ ()=> openModalEdit(row.id) }
                                 >
                                   <SvgModal>
-                                    <use href={sprite + "#icon-edit"}></use>
+                                    <use href={sprite + "#icon-edit-01"}></use>
                                   </SvgModal>
                                   Edit
                                 </ButtonModal>
@@ -155,16 +161,14 @@ function WordsTable  ({
                                 </Modal>
                               )}
                               <ButtonModal
-                                onClick={() =>
-                                  dispatch(deleteWords(row.original._id))
-                                }
+                                onClick={()=>hendleDelite(row)}
                               >
                                 <SvgModal>
-                                  <use href={sprite + "#icon-trash"}></use>
+                                  <use href={sprite + "#icon-trash-03"}></use>
                                 </SvgModal>
                                 Delete
                               </ButtonModal>
-                            </ModalOpen>
+                            </ModalEdit>
                           )}
                         </>
                       )

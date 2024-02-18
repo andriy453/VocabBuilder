@@ -1,9 +1,20 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    margin-bottom: 28px;
+  }
+    @media screen and (min-width: 1440px) {
+        margin-bottom: 0px;
+    }
+  margin-bottom: 40px;
+`;
+export const Wrap = styled.div`
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 
 export const InputWord = styled.input`
@@ -150,18 +161,18 @@ export const StudyDiv = styled.div`
 
 export const KeyText = styled.p`
   color: rgba(18, 20, 23, 0.5);
-font-size: 14px;
-font-weight: 500;
-line-height: 19px;
-  @media screen and (min-width:768px) {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 19px;
+  @media screen and (min-width: 768px) {
     font-size: 16px;
   }
 `;
 export const ValueText = styled.p`
   color: #121417;
-font-size: 20px;
-font-weight: 500;
-line-height: 28px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
 `;
 
 export const RightWrap = styled.div`
@@ -169,7 +180,7 @@ export const RightWrap = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
-  @media screen and (min-width:768px) {
+  @media screen and (min-width: 768px) {
     align-items: center;
     flex-direction: row;
     gap: 16px;
@@ -177,7 +188,7 @@ export const RightWrap = styled.div`
 `;
 export const WrapRightBtn = styled.div`
   display: flex;
-  gap: 6px;
+  gap: 16px;
 `;
 
 export const Button = styled.button`
@@ -196,13 +207,13 @@ export const Button = styled.button`
 `;
 export const TextTrain = styled.p`
   color: #121417;
-font-size: 16px;
-font-weight: 500;
-line-height: 24px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
   margin-right: 6px;
   display: block;
 `;
 export const SvgArrow = styled.svg`
   width: 20px;
   height: 20px;
-`
+`;

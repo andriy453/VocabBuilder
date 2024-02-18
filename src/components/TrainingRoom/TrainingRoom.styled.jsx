@@ -14,8 +14,6 @@ export const InputTranslate = styled.input`
 
   background: #fcfcfc;
   color: #121417;
-
-  font-family: "Medium";
   font-size: 20px;
   line-height: 1.5;
   height: 195px;
@@ -113,8 +111,6 @@ export const WrapInput = styled.div`
 `;
 export const TaskWord = styled.p`
   color: #121417;
-
-  font-family: "Medium";
   font-size: 20px;
   line-height: 1.5;
 `;
@@ -132,8 +128,7 @@ export const BtnNext = styled.button`
   background: transparent;
   border: none;
   outline: none;
-  color: rgba(18, 20, 23, 0.5);
-  font-family: "Medium";
+  color: rgba(18, 20, 23, 0.5)
   font-size: 16px;
   line-height: normal;
   display: flex;
@@ -196,8 +191,7 @@ export const BtnCancel = styled.button`
   }
 `;
 export const TextLang = styled.p`
-  color: #121417;
-  font-family: "Medium";
+  color: #121417
   font-size: 16px;
   line-height: 1.5;
 `;

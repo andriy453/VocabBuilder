@@ -4,7 +4,7 @@ export const WrapTraining = styled.div`
   padding: 10px;
   background: #f8f8f8;
   width: 100vw;
-  height: 100%;
+  height: calc(100vh - 96px);
   position: relative;
   @media screen and (min-width: 768px) {
     padding: 20px 30px 0 30px;

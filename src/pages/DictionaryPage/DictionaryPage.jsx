@@ -13,7 +13,9 @@ import {
   ButtonPagination,
   SvgStep,
   WrapPagination,
+  SvgStepNext,
 } from '../../components/WordsTable/WordsTable.styled';
+
 import {
   // Picture,
   TextTraining,
@@ -140,28 +142,28 @@ const DictionaryPage = () => {
     <Container>
     <Dashboard currentPage={currentPage} id='dictionary'/>
     <WordsTable columns={columnsDictionary} data={dictionary} id='dictionary'/>
-    {totalPages  >0 ? (
+    {totalPages > 0 ? (
           <WrapPagination>
             <ButtonPagination onClick={() => handlePageChange(1)}>
               <SvgStep>
-                <use href={sprite + "#icon-first"}></use>
+                <use href={sprite + "#icon-First"}></use>
               </SvgStep>
             </ButtonPagination>
             <ButtonPagination onClick={handleDecrement}>
               <SvgStep>
-                <use href={sprite + "#icon-prev"}></use>
+                <use href={sprite + "#icon-Prev"}></use>
               </SvgStep>
             </ButtonPagination>
             {renderPageButtons()}
             <ButtonPagination onClick={handleIncrement}>
-              <SvgStep>
-                <use href={sprite + "#icon-next"}></use>
-              </SvgStep>
+              <SvgStepNext>
+                <use href={sprite + "#icon-Prev"}></use>
+              </SvgStepNext>
             </ButtonPagination>
             <ButtonPagination onClick={() => handlePageChange(totalPages)}>
-              <SvgStep>
-                <use href={sprite + "#icon-last"}></use>
-              </SvgStep>
+              <SvgStepNext>
+                <use href={sprite + "#icon-First"}></use>
+              </SvgStepNext>
             </ButtonPagination>
           </WrapPagination>) : (
           <WrapTrainingAppsentAll>

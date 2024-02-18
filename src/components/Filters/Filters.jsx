@@ -18,7 +18,7 @@ import {
 
 import sprite from '../../assets/sprite.svg'
 
-function Filters({currentPage,id}) {
+function Filters({currentPage,id,modal}) {
     const dispatch = useDispatch();
     const Categories = useSelector(StateCategories);
     const [filterWord, setFilterWord] = useState('');
@@ -52,7 +52,8 @@ function Filters({currentPage,id}) {
   }, [dispatch, id, currentPage, selectedVerbType, filterWord, selectCategories]);
   return (
 <>
-<ContainerInp>
+{ modal && 
+  <ContainerInp>
     <InputWord
       type="text"
       placeholder="Find the word"
@@ -63,6 +64,7 @@ function Filters({currentPage,id}) {
       <use href={sprite + '#icon-search'}></use>
     </SvgSearch>
   </ContainerInp>
+  }
   <Dropdown
     value="Categories"
     set={setCategories}

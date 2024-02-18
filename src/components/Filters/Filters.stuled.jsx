@@ -9,9 +9,18 @@ export const InputWord = styled.input`
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
+
+  @media screen and (min-width: 768px) {
+    width: 274px;
+  }
 `;
 export const ContainerInp = styled.div`
   position: relative;
+  margin-bottom: 8px;
+  @media screen and (min-width: 768px) {
+    margin-right: 8px;
+    margin-bottom: 0px;
+  }
 `;
 
 export const SvgSearch = styled.svg`
@@ -23,7 +32,6 @@ export const SvgSearch = styled.svg`
   top: 12px;
   right: 24px;
 `;
-
 
 export const SvgDown = styled.svg`
   width: 20px;
@@ -79,4 +87,7 @@ export const WrapRadioBtn = styled.div`
   display: flex;
   flex-direction: row;
   gap: 16px;
+    @media screen and (min-width: 768px) {
+      margin-left:10px;
+    }
 `;

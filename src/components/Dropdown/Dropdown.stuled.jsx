@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Customdropdown = styled.div`
   position: relative;
-  width: 100%;
   border-radius: 14px;
   background-color: #fff;
   padding: 12px 24px;
@@ -14,7 +13,7 @@ export const Dropdownheader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0px 50px;
+  gap: 0px 12px;
 
   cursor: pointer;
   border-radius: 14px;
