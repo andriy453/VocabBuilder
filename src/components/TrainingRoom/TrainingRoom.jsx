@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { wordsAnswers } from "../../redux/Word/operations";
 import sprite from "../../assets/sprite.svg";
-// import { Modal } from "../Modal/Modal";
-// import WordList from "../Modal/WordsList/WordsList";
+import  Modal  from "../Modal/Modal";
+import WellDoneModal from "../Modal/WellDoneModal/WellDoneModal";
 import {
   BtnAdd,
   BtnCancel,
@@ -33,7 +33,7 @@ const TrainingRoom = ({
   const [uaTranslation, setUaTranslation] = useState("");
   const [enTranslation, setEnTranslation] = useState("");
 
-//   const [tasks, setTasks] = useState([]);
+  // const [tasks, setTasks] = useState([]);
   const [answers, setAnswers] = useState([]);
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
@@ -209,11 +209,11 @@ const TrainingRoom = ({
         <BtnAdd type="submit" onClick={() => handleSaveClick()}>
           Save
         </BtnAdd>
-        {/* {isOpen && (
+        {isOpen && (
           <Modal onClose={closeModal} isOpen={isOpen}>
-            <WordList />
+            <WellDoneModal />
           </Modal>
-        )} */}
+        )}
         <BtnCancel type="submit" onClick={() => handleCancelClick()}>
           Cancel
         </BtnCancel>

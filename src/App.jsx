@@ -14,7 +14,7 @@ import { useDispatch } from "react-redux";
 import PublicRoute  from './routes/PublicRoute';
 import PrivateRoute  from './routes/PrivateRoute';
 
-import { refreshUser } from "./redux/auth/operations";
+import { refreshUser } from "./redux/Auth/operations";
 
 
 function App() {
