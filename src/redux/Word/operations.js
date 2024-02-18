@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { instance } from "../auth/operations";
+import { instance } from "../Auth/operations";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const notifix = (errorCode) => {
