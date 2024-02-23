@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { wordsTasks } from "../../redux/Word/operations";
-// import { Header } from "../../shared/components/Header/Header";
 import ProgressBar from "../../components/ProgressBar/ProgressBar";
 import TrainingRoom from "../../components/TrainingRoom/TrainingRoom";
 import {
@@ -16,25 +15,17 @@ import {
   WrapTrainingAppsent,
   WrapTrainingAppsentAll,
   WrapTrainingAppsentText,
+  Picture,
 } from "./TrainingPage.style";
 
 import {selectTacks} from '../../redux/Word/selectors'
 
-// import bloodReportDesktop1x from "../../shared/images/blood-report1xdesktop.png";
-// import bloodReportDesktop2x from "../../shared/images/blood-report2xdesktop.png";
-// import bloodReportDesktop1xWebp from "../../shared/images/blood-report1xdesktopWebp.webp";
-// import bloodReportDesktop2xWebp from "../../shared/images/blood-report2xdesktopWebp.webp";
 
-// import bloodReportTablet1x from "../../shared/images/blood-report1xtablet.png";
-// import bloodReportTablet2x from "../../shared/images/blood-report2xtablet.png";
-// import bloodReportTablet1xWebp from "../../shared/images/blood-report1xtabletWebp.webp";
-// import bloodReportTablet2xWebp from "../../shared/images/blood-report2xtabletWebp.webp";
-
-// import bloodReportMobile1x from "../../shared/images/blood-report1xmobile.png";
-// import bloodReportMobile2x from "../../shared/images/blood-report2xmobile.png";
-// import bloodReportMobile1xWebp from "../../shared/images/blood-report1xmobileWebp.webp";
-// import bloodReportMobile2xWebp from "../../shared/images/blood-report2xmobileWebp.webp";
 import { useNavigate } from "react-router-dom";
+import imgTrainingPageMobile1x from "../../assets/img-trainingPage-Mobile-1x.png";
+import imgTrainingPageMobile2x from "../../assets/img-trainingPage-Mobile-2x.png";
+import imgTrainingPagetablet1x from "../../assets/img-trainingPage-tablet-1x.png";
+import imgTrainingPagetablet2x from "../../assets/img-trainingPage-tablet-2x.png";
 
 const TrainingPage = () => {
   const tasks = useSelector(selectTacks);
@@ -95,7 +86,7 @@ console.log(tasks)
                 <WrapBtn>
                   <BtnAdd
                     type="submit"
-                    onClick={() => navigate(`/home/dictionary?open=true`)}
+                    onClick={() => navigate(`/dictionary`)}
                   >
                     Add word
                   </BtnAdd>
@@ -104,63 +95,25 @@ console.log(tasks)
                   </BtnCancel>
                 </WrapBtn>
               </WrapTrainingAppsent>
-              {/* <Picture>
+              <Picture>
                 <source
-                  srcSet={bloodReportDesktop2xWebp}
-                  type="image/webp"
-                  media="(min-width: 1200px) and (min-resolution: 2dppx)"
-                />
-                <source
-                  srcSet={bloodReportDesktop1xWebp}
-                  type="image/webp"
-                  media="(min-width: 1200px)"
-                />
-                <source
-                  srcSet={bloodReportTablet2xWebp}
-                  type="image/webp"
-                  media="(max-width: 767px) and (min-resolution: 2dppx)"
-                />
-                <source
-                  srcSet={bloodReportTablet1xWebp}
-                  type="image/webp"
-                  media="(max-width: 767px)"
-                />
-                <source
-                  srcSet={bloodReportMobile2xWebp}
-                  type="image/webp"
-                  media="(max-width: 767px) and (min-resolution: 2dppx)"
-                />
-                <source
-                  srcSet={bloodReportMobile1xWebp}
-                  type="image/webp"
-                  media="(max-width: 767px)"
-                />
-                <source
-                  srcSet={bloodReportDesktop2x}
+                  srcSet={imgTrainingPagetablet2x}
                   media="(min-width: 767px) and (min-resolution: 2dppx)"
                 />
                 <source
-                  srcSet={bloodReportDesktop1x}
+                  srcSet={imgTrainingPagetablet1x}
                   media="(min-width: 767px)"
                 />
                 <source
-                  srcSet={bloodReportTablet2x}
+                  srcSet={imgTrainingPageMobile2x}
                   media="(max-width: 767px) and (min-resolution: 2dppx)"
                 />
                 <source
-                  srcSet={bloodReportTablet1x}
+                  srcSet={imgTrainingPageMobile1x}
                   media="(max-width: 767px)"
                 />
-                <source
-                  srcSet={bloodReportMobile2x}
-                  media="(max-width: 767px) and (min-resolution: 2dppx)"
-                />
-                <source
-                  srcSet={bloodReportMobile1x}
-                  media="(max-width: 767px)"
-                />
-                <img src={bloodReportMobile1x} alt="User" />
-              </Picture> */}
+                <img src={imgTrainingPageMobile1x} alt="User" />
+              </Picture>
             </WrapTrainingAppsentAll>
           </>
         )}

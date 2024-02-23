@@ -96,10 +96,9 @@ export const WrapBtn = styled.div`
   display: flex;
   gap: 10px;
   flex-direction: column;
-  margin-top: 20px;
-
+  margin-top: 132px;
   @media screen and (min-width: 768px) {
-    margin-top: 80px;
+    margin-top: 64px;
     flex-direction: row;
   }
 `;
@@ -153,10 +152,10 @@ export const BtnAdd = styled.button`
   border-radius: 30px;
   background: #85aa9f;
   color: #fcfcfc;
-  font-family: "SemiBold";
   font-size: 18px;
   line-height: 1.55;
   min-width: 280px;
+  font-weight: 700;
   &:hover,
   &:focus {
     opacity: 0.4;
@@ -168,8 +167,6 @@ export const BtnAdd = styled.button`
 `;
 export const BtnCancel = styled.button`
   background: transparent;
-  border: none;
-  outline: none;
   display: flex;
   padding: 14px 71px;
   justify-content: center;
@@ -177,8 +174,8 @@ export const BtnCancel = styled.button`
   border-radius: 30px;
   border: 1px solid #85aa9f;
   color: #85aa9f;
-  font-family: "SemiBold";
   font-size: 18px;
+  font-weight: 700;
   line-height: 1.55;
   min-width: 280px;
   @media screen and (min-width: 768px) {
@@ -186,12 +183,14 @@ export const BtnCancel = styled.button`
   }
   &:hover,
   &:focus {
-    opacity: 0.4;
-    transition: all 250ms linear;
+    background-color: #85aa9f;
+    color:#fff;
+    transition: all 300ms;
   }
 `;
+
 export const TextLang = styled.p`
-  color: #121417
+  color: #121417;
   font-size: 16px;
   line-height: 1.5;
 `;

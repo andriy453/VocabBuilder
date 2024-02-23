@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import throttle from "lodash.throttle";
 import Dropdown from '../Dropdown/Dropdown';
 import {
     SvgSearch,
@@ -34,7 +35,6 @@ function Filters({currentPage,id,modal}) {
           category: selectCategories,
           verb: selectedVerbType,
           search: filterWord,
-          // perPage: perPage,
         })
       );
     }
@@ -45,7 +45,6 @@ function Filters({currentPage,id,modal}) {
           category: selectCategories,
           verb: selectedVerbType,
           search: filterWord,
-          // perPage: perPage,
         })
       );
     }
@@ -57,7 +56,7 @@ function Filters({currentPage,id,modal}) {
     <InputWord
       type="text"
       placeholder="Find the word"
-      onChange={(e) => setFilterWord(e.target.value)}
+      onChange={(e) => setTimeout(setFilterWord(e.target.value), 300)}
       value={filterWord}
     />
     <SvgSearch>

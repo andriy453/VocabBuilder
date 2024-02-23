@@ -24,8 +24,8 @@ export const WrapTrainingAppsentText = styled.div`
 
 export const Title = styled.h2`
   color: #121417;
+  font-weight: 500;
 
-  font-family: "Medium";
   font-size: 20px;
   line-height: 1.5;
   margin-bottom: 32px;
@@ -33,9 +33,9 @@ export const Title = styled.h2`
 
 export const TextTraining = styled.p`
   color: #121417;
-  font-family: "Regular";
   font-size: 16px;
   line-height: 1.5;
+  font-weight: 400;
 `;
 
 export const Picture = styled.picture`
@@ -44,6 +44,14 @@ export const Picture = styled.picture`
   @media screen and (min-width: 768px) {
     width: 205px;
     height: 230px;
+  }
+  img{
+      width: 144px;
+  height: 166px;
+  @media screen and (min-width: 768px) {
+    width: 205px;
+    height: 230px;
+  }
   }
 `;
 

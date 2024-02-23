@@ -1,6 +1,8 @@
 
 import { useState } from "react";
 import { useTable } from "react-table";
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 import {
   Button,
   ButtonModal,
@@ -71,6 +73,10 @@ function WordsTable  ({
  openModalEdit(id.id)
 
 }
+const hendleAddDictionary   =  (id) => {
+  addWordToOwn(id.original._id);
+  Notify.success("word add to dictionary");
+}
 
   return (
     <>
@@ -113,7 +119,7 @@ function WordsTable  ({
                   <Td {...cell.getCellProps()}>
                     {index === row.cells.length - 1 ? (
                       id === "recommend" ? (
-                        <Button onClick={() => addWordToOwn(row.original._id)}>
+                        <Button onClick={()=>hendleAddDictionary(row) }>
                           <TextAdd>Add to dictionary</TextAdd>
                           <SvgArrow>
                             <use href={sprite + "#icon-switch-horizontal-01-1"}></use>
