@@ -21,7 +21,6 @@ export const Th = styled.th`
   line-height: normal;
   padding: 14px;
   word-break: break-word;
-  /* border-radius: 8px 0px 0px 0px; */
   border-right: 1px solid #dbdbdb;
   border-bottom: 1px solid #dbdbdb;
   background: rgba(133, 170, 159, 0.1);

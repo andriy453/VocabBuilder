@@ -27,7 +27,7 @@ export const InputTranslate = styled.input`
 
   &::placeholder {
     color: #121417;
-    font-family: "Medium";
+
     font-size: 20px;
     line-height: 1.5;
   }
@@ -127,7 +127,7 @@ export const BtnNext = styled.button`
   background: transparent;
   border: none;
   outline: none;
-  color: rgba(18, 20, 23, 0.5)
+  color: rgba(18, 20, 23, 0.5);
   font-size: 16px;
   line-height: normal;
   display: flex;
