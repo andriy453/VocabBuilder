@@ -734,7 +734,7 @@ attempted value: ${s}
 
   &::placeholder {
     color: #121417;
-    font-family: "Medium";
+
     font-size: 20px;
     line-height: 1.5;
   }
@@ -825,7 +825,7 @@ attempted value: ${s}
   background: transparent;
   border: none;
   outline: none;
-  color: rgba(18, 20, 23, 0.5)
+  color: rgba(18, 20, 23, 0.5);
   font-size: 16px;
   line-height: normal;
   display: flex;
@@ -1102,7 +1102,6 @@ attempted value: ${s}
   line-height: normal;
   padding: 14px;
   word-break: break-word;
-  /* border-radius: 8px 0px 0px 0px; */
   border-right: 1px solid #dbdbdb;
   border-bottom: 1px solid #dbdbdb;
   background: rgba(133, 170, 159, 0.1);
