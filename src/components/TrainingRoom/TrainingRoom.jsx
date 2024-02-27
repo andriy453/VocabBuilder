@@ -52,9 +52,6 @@ const TrainingRoom = ({
     setIsOpen(false);
   };
 
-//   useEffect(() => {
-//     setTasks((prevTasks) => [...prevTasks, currentTask]);
-//   }, [currentTask]);
 
   const handleTranslationChange = (e) => {
     if (isUaTask) {

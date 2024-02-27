@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useTable } from "react-table";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { nanoid } from 'nanoid'
 
 import {
   Button,
@@ -80,12 +81,12 @@ const hendleAddDictionary   =  (id) => {
 
   return (
     <>
-      <Table {...getTableProps()}>
+      <Table {...getTableProps()} $id={id}>
         <thead>
           {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
+            <tr {...headerGroup.getHeaderGroupProps()} key={nanoid()}>
               {headerGroup.headers.map((column, index) => (
-                <Th {...column.getHeaderProps()}>
+                <Th key={nanoid()}  {...column.getHeaderProps()}>
                   <IconWrapper>
                     {index < 2 ? (
                       <>
@@ -114,9 +115,9 @@ const hendleAddDictionary   =  (id) => {
           {rows.map((row) => {
             prepareRow(row);
             return (
-              <tr {...row.getRowProps()}>
+              <tr {...row.getRowProps()} key={nanoid()}>
                 {row.cells.map((cell, index) => (
-                  <Td {...cell.getCellProps()}>
+                  <Td key={nanoid()}  {...cell.getCellProps()}>
                     {index === row.cells.length - 1 ? (
                       id === "recommend" ? (
                         <Button onClick={()=>hendleAddDictionary(row) }>

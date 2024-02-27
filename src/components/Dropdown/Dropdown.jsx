@@ -11,7 +11,7 @@ import {
 import sprite from '../../assets/sprite.svg';
 
 
-function Dropdown({arr, value, set, height, selectedOption }) {
+function Dropdown({arr, value, set, height, selectedOption,modal }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -37,19 +37,18 @@ function Dropdown({arr, value, set, height, selectedOption }) {
       document.removeEventListener('click', handleClickOutside);
     };
   }, [dropdownRef]);
-console.log(arr)
   return (
-    <Customdropdown>
+    <Customdropdown $modal={modal}>
       <Dropdownheader onClick={toggleDropdown} ref={dropdownRef}>
         <DropdownText>{selectedOption || value}</DropdownText>
-        <SvgDown $active={isOpen ? true : undefined}>
+        <SvgDown $active={isOpen ? true : undefined } $modal={modal}>
           <use href={sprite + '#icon-drop'}></use>
         </SvgDown>
       </Dropdownheader>
       {isOpen && (
         <Dropdownlist $heigh={height ? height : undefined}>
           {arr && arr.map((arr, index) => (
-            <DropdownItem key={index} onClick={() => handleOptionClick(arr)}>
+            <DropdownItem $modal={modal} key={index} onClick={() => handleOptionClick(arr)}>
               {arr}
             </DropdownItem>
           ))}

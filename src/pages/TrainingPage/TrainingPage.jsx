@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { wordsTasks } from "../../redux/Word/operations";
-import ProgressBar from "../../components/ProgressBar/ProgressBar";
-import TrainingRoom from "../../components/TrainingRoom/TrainingRoom";
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { wordsTasks } from '../../redux/Word/operations';
+import ProgressBar from '../../components/ProgressBar/ProgressBar';
+import TrainingRoom from '../../components/TrainingRoom/TrainingRoom';
 import {
   BtnAdd,
   BtnCancel,
   WrapBtn,
-} from "../../components/TrainingRoom/TrainingRoom.styled";
+} from '../../components/TrainingRoom/TrainingRoom.styled';
 import {
   TextTraining,
   Title,
@@ -16,16 +16,15 @@ import {
   WrapTrainingAppsentAll,
   WrapTrainingAppsentText,
   Picture,
-} from "./TrainingPage.style";
+} from './TrainingPage.style';
 
-import {selectTacks} from '../../redux/Word/selectors'
+import { selectTacks } from '../../redux/Word/selectors';
 
-
-import { useNavigate } from "react-router-dom";
-import imgTrainingPageMobile1x from "../../assets/img-trainingPage-Mobile-1x.png";
-import imgTrainingPageMobile2x from "../../assets/img-trainingPage-Mobile-2x.png";
-import imgTrainingPagetablet1x from "../../assets/img-trainingPage-tablet-1x.png";
-import imgTrainingPagetablet2x from "../../assets/img-trainingPage-tablet-2x.png";
+import { useNavigate } from 'react-router-dom';
+import imgTrainingPageMobile1x from '../../assets/img-trainingPage-Mobile-1x.png';
+import imgTrainingPageMobile2x from '../../assets/img-trainingPage-Mobile-2x.png';
+import imgTrainingPagetablet1x from '../../assets/img-trainingPage-tablet-1x.png';
+import imgTrainingPagetablet2x from '../../assets/img-trainingPage-tablet-2x.png';
 
 const TrainingPage = () => {
   const tasks = useSelector(selectTacks);
@@ -36,7 +35,7 @@ const TrainingPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    dispatch(wordsTasks())
+    dispatch(wordsTasks());
   }, [dispatch]);
 
   const handleNextClick = (translation) => {
@@ -52,29 +51,31 @@ const TrainingPage = () => {
       setDisable(true);
     }
   };
-console.log(tasks)
+  console.log(tasks);
   return (
     <>
       <WrapTraining>
-        <ProgressBar
-          totalTasks={tasks.length}
-          userAnswers={userAnswers.length}
-        />
         {tasks.length > 0 ? (
-          <TrainingRoom
-            currentTask={tasks[currentTaskIndex]}
-            onNextClick={handleNextClick}
-            disable={disable}
-            tasks={tasks}
-            currentTaskIndex={currentTaskIndex}
-          />
+          <>
+            <ProgressBar
+              totalTasks={tasks.length}
+              userAnswers={userAnswers.length}
+            />
+            <TrainingRoom
+              currentTask={tasks[currentTaskIndex]}
+              onNextClick={handleNextClick}
+              disable={disable}
+              tasks={tasks}
+              currentTaskIndex={currentTaskIndex}
+            />
+          </>
         ) : (
           <>
             <WrapTrainingAppsentAll>
               <WrapTrainingAppsent>
                 <WrapTrainingAppsentText>
                   <Title>
-                    You don't have a single word to learn right now.{" "}
+                    You don't have a single word to learn right now.{' '}
                   </Title>
                   <TextTraining>
                     Please create or add a word to start the workout. We want to
@@ -84,10 +85,7 @@ console.log(tasks)
                   </TextTraining>
                 </WrapTrainingAppsentText>
                 <WrapBtn>
-                  <BtnAdd
-                    type="submit"
-                    onClick={() => navigate(`/dictionary`)}
-                  >
+                  <BtnAdd type="submit" onClick={() => navigate(`/dictionary`)}>
                     Add word
                   </BtnAdd>
                   <BtnCancel type="submit" onClick={() => navigate(-1)}>

@@ -32,6 +32,7 @@ const initialState = {
   tacks:[],
   page: null,
   totalPages: null,
+  totalPage2: null,
   perPage: null,
   isRefreshing: false,
   isLoggedIn: false,
@@ -51,7 +52,9 @@ const WordSlice = createSlice({
         state.ownWords = action.payload.results;
         state.page = action.payload.page;
         state.totalPages = action.payload.totalPages;
+        state.totalPage2 = action.payload.results;
         state.perPage = action.payload.perPage;
+
         state.isLoggedIn = true;
         state.isLoading = false;
       })

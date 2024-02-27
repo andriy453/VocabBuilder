@@ -14,7 +14,7 @@ const ModalContent = styled.div`
   box-shadow: 0px 4px 47px 0px rgba(18, 20, 23, 0.08);
   border-radius: 15px;
   background: #fff;
-  z-index: 100;
+  z-index: 1;
   padding: 12px 24px;
   position: absolute;
   min-width: 140px;

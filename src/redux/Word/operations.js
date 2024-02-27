@@ -32,7 +32,7 @@ export const fetchWords = createAsyncThunk(
     try {
       if(category === 'all'){
         const { data } = await instance.get(
-          `words/all?keyword=${search}&isIrregular=${verb}&page=${page}`
+          `words/all?keyword=${search}&page=${page}`
         );
         return data;
       }else{
@@ -136,10 +136,18 @@ export const wordsOwn = createAsyncThunk(
   "words/own",
   async ({ page, search, category, verb }, { rejectWithValue }) => {
     try {
-      const response = await instance.get(
+      if(category === 'all'){
+        const { data } = await instance.get(
+          `words/own?keyword=${search}&page=${page}`
+        );
+        return data;
+      }
+     else{
+      const  { data } = await instance.get(
         `words/own?keyword=${search}&category=${category}&isIrregular=${verb}&page=${page}`
       );
-      return response.data;
+      return data;
+     }
     } catch (error) {
              notifix(error.message, error.response?.status);
       return rejectWithValue(error.message);

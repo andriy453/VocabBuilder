@@ -3,10 +3,12 @@ import styled from 'styled-components';
 export const Customdropdown = styled.div`
   position: relative;
   border-radius: 14px;
-  background-color: #fff;
+  background-color: ${(props) => props.$modal ? "transparent" : "#fff"};
+  color: ${(props) => props.$modal ? "#FCFCFC" : undefined};
   padding: 12px 24px;
-  border: 1px solid rgba(18, 20, 23, 0.1);
+  border: ${(props) => props.$modal ? " 1px solid rgb(209, 213, 219)" : '1px solid rgba(18, 20, 23, 0.1)'} ;
   border-radius: 15px;
+ 
 `;
 
 export const Dropdownheader = styled.div`
@@ -51,6 +53,16 @@ export const Dropdownlist = styled.ul`
 
   transition: all 300ms;
 `;
+
+export const SvgDown = styled.svg`
+  width: 20px;
+  height: 20px;
+  stroke-width: 0;
+  transition: transform 300ms;
+  fill:${(props) => props.$modal ?"rgb(252, 252, 252)" : undefined};
+  transform: ${(props) => props.$active && 'rotate(180deg)'};
+`;
+
 export const DropdownItem = styled.li`
   cursor: pointer;
   transition: color 300ms;
@@ -58,13 +70,8 @@ export const DropdownItem = styled.li`
 
   width: 100%;
   &:hover {
-    color: var(--secondary);
+    
+    color: ${(props) => props.$modal ? 'var(--grean)' : 'var(--secondary)'} ;
+    
   }
-`;
-export const SvgDown = styled.svg`
-  width: 20px;
-  height: 20px;
-  stroke-width: 0;
-  transition: transform 300ms;
-  transform: ${(props) => props.$active && 'rotate(180deg)'};
 `;

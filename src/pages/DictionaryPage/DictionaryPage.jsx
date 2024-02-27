@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useEffect ,useState} from "react";
 import { useDispatch } from "react-redux";
 import { wordsAll, wordsOwn } from "../../redux/Word/operations";
-import {  selectOwnWords, totalPagesWords, } from "../../redux/Word/selectors";
+import {  selectOwnWords, totalPagesWords2,  totalPagesWords} from "../../redux/Word/selectors";
 import CircularProgress from "@mui/material/CircularProgress";
 import "@mui/material/styles";
 
@@ -17,7 +17,7 @@ import {
 } from '../../components/WordsTable/WordsTable.styled';
 
 import {
-  // Picture,
+  Picture,
   TextTraining,
   Title,
   WrapTrainingAppsent,
@@ -25,6 +25,11 @@ import {
   WrapTrainingAppsentText,
 } from "../TrainingPage/TrainingPage.style";
 import sprite from '../../assets/sprite.svg'
+import imgTrainingPageMobile1x from "../../assets/img-trainingPage-Mobile-1x.png";
+import imgTrainingPageMobile2x from "../../assets/img-trainingPage-Mobile-2x.png";
+import imgTrainingPagetablet1x from "../../assets/img-trainingPage-tablet-1x.png";
+import imgTrainingPagetablet2x from "../../assets/img-trainingPage-tablet-2x.png";
+
 const DictionaryPage = () => {
 
 
@@ -35,6 +40,7 @@ const DictionaryPage = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = useSelector(totalPagesWords);
+  const totalPages2 = useSelector(totalPagesWords2);
   const dictionary = useSelector(selectOwnWords);
 
   useEffect(() => {
@@ -137,12 +143,13 @@ const DictionaryPage = () => {
     },
     { Header: "", accessor: "..." },
   ];
-  console.log(Date.now() )
+
+
   return (
     <Container>
     <Dashboard currentPage={currentPage} id='dictionary'/>
     <WordsTable columns={columnsDictionary} data={dictionary} id='dictionary'/>
-    {totalPages > 0 ? (
+    {totalPages2 > [] ? (
           <WrapPagination>
             <ButtonPagination onClick={() => handlePageChange(1)}>
               <SvgStep>
@@ -177,57 +184,25 @@ const DictionaryPage = () => {
                 </TextTraining>
               </WrapTrainingAppsentText>
             </WrapTrainingAppsent>
-            {/* <Picture>
-              <source
-                srcSet={bloodReportDesktop2xWebp}
-                type="image/webp"
-                media="(min-width: 1200px) and (min-resolution: 2dppx)"
-              />
-              <source
-                srcSet={bloodReportDesktop1xWebp}
-                type="image/webp"
-                media="(min-width: 1200px)"
-              />
-              <source
-                srcSet={bloodReportTablet2xWebp}
-                type="image/webp"
-                media="(max-width: 767px) and (min-resolution: 2dppx)"
-              />
-              <source
-                srcSet={bloodReportTablet1xWebp}
-                type="image/webp"
-                media="(max-width: 767px)"
-              />
-              <source
-                srcSet={bloodReportMobile2xWebp}
-                type="image/webp"
-                media="(max-width: 767px) and (min-resolution: 2dppx)"
-              />
-              <source
-                srcSet={bloodReportMobile1xWebp}
-                type="image/webp"
-                media="(max-width: 767px)"
-              />
-              <source
-                srcSet={bloodReportDesktop2x}
-                media="(min-width: 767px) and (min-resolution: 2dppx)"
-              />
-              <source
-                srcSet={bloodReportDesktop1x}
-                media="(min-width: 767px)"
-              />
-              <source
-                srcSet={bloodReportTablet2x}
-                media="(max-width: 767px) and (min-resolution: 2dppx)"
-              />
-              <source srcSet={bloodReportTablet1x} media="(max-width: 767px)" />
-              <source
-                srcSet={bloodReportMobile2x}
-                media="(max-width: 767px) and (min-resolution: 2dppx)"
-              />
-              <source srcSet={bloodReportMobile1x} media="(max-width: 767px)" />
-              <img src={bloodReportMobile1x} alt="User" />
-            </Picture> */}
+            <Picture>
+                <source
+                  srcSet={imgTrainingPagetablet2x}
+                  media="(min-width: 767px) and (min-resolution: 2dppx)"
+                />
+                <source
+                  srcSet={imgTrainingPagetablet1x}
+                  media="(min-width: 767px)"
+                />
+                <source
+                  srcSet={imgTrainingPageMobile2x}
+                  media="(max-width: 767px) and (min-resolution: 2dppx)"
+                />
+                <source
+                  srcSet={imgTrainingPageMobile1x}
+                  media="(max-width: 767px)"
+                />
+                <img src={imgTrainingPageMobile1x} alt="User" />
+              </Picture>
           </WrapTrainingAppsentAll>
         )}
     </Container>

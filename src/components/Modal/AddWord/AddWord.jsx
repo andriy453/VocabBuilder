@@ -61,137 +61,6 @@ const AddForm = ({ onClose }) => {
     resetForm();
     onClose();
   };
-  const handleVerbTypeChange = (e) => {
-    const verbType = e.target.value;
-    setSelectedVerbType(verbType);
-  };
-  const handleCategoryChange = (e) => {
-    const category = e.value;
-    if (category === "all") {
-      setSelectedCategory("");
-      setSelectedVerbType("");
-    } else {
-      setSelectedCategory(category);
-      setSelectedVerbType("");
-    }
-  };
-
-  const onCancel = () => {
-    onClose();
-  };
-
-  const customStyles = {
-    option: (base, { isFocused, isSelected }) => ({
-      ...base,
-      border: "none",
-      outline: "none",
-      boxShadow: "none",
-      padding: "4px 14px",
-      borderRadius: "14px",
-      margin: "0px",
-      cursor: "pointer",
-      fontFamily: "Medium",
-      background: "transparent",
-      color: isSelected ? "#121417" : "rgba(18, 20, 23, 0.3)",
-      ":hover": {
-        color: "rgba(18, 20, 23, 1)",
-      },
-      ":active": {
-        color: "rgba(18, 20, 23, 1)",
-      },
-      ":focus": {
-        color: "rgba(18, 20, 23, 1)",
-      },
-    }),
-    indicatorSeparator: (defaultStyles) => ({
-      ...defaultStyles,
-      display: "none",
-      background: "transparent",
-    }),
-    menuList: (base) => ({
-      ...base,
-      background: "FFF",
-    }),
-    menu: (defaultStyles) => ({
-      ...defaultStyles,
-
-      cursor: "pointer",
-      borderRadius: "14px",
-      fontFamily: "Medium",
-      padding: "0px",
-      background: "FFF",
-      width: "189px",
-      minHeight: "100%",
-      justifyСontent: "center",
-      alignItems: "center",
-      border: "1px solid rgba(252, 252, 252, 0.30)",
-
-      color: "rgba(25, 26, 21, 0.30)",
-    }),
-    dropdownIndicator: (defaultStyles) => ({
-      ...defaultStyles,
-      cursor: "pointer",
-      color: "#FCFCFC",
-      padding: "0px",
-      margin: "0px",
-
-      background: "transparent",
-    }),
-
-    singleValue: (defaultStyles) => ({
-      ...defaultStyles,
-      color: "#FCFCFC",
-
-      fontFamily: "Medium",
-      cursor: "pointer",
-      borderRadius: "14px",
-      background: "transparent",
-      ":active": {
-        color: "rgba(18, 20, 23, 1)",
-      },
-    }),
-    valueContainer: (defaultStyles) => ({
-      ...defaultStyles,
-      background: "transparent",
-      color: "rgba(18, 20, 23, 1)",
-
-      ":hover": {
-        color: "rgba(18, 20, 23, 1)",
-      },
-    }),
-    control: (defaultStyles) => ({
-      ...defaultStyles,
-      cursor: "pointer",
-      background: "transparent",
-      borderRadius: "20px",
-      boxShadow: "none",
-      color: "#FCFCFC",
-      fontFamily: "Medium",
-      width: "100%",
-      maxWidth: "375px",
-      padding: "14px 14px",
-      border: "1px solid rgba(252, 252, 252, 0.30)",
-
-      ":active": {
-        color: "rgba(18, 20, 23, 1)",
-        border: "1px solid rgba(252, 252, 252, 1)",
-      },
-      ":focus": {
-        border: "1px solid rgba(252, 252, 252, 1)",
-      },
-      ":hover": {
-        background: "transparent",
-        border: "1px solid rgba(252, 252, 252, 1)",
-      },
-      "@media screen and (min-width: 768px)": {
-        width: "auto",
-      },
-    }),
-    placeholder: (base) => ({
-      ...base,
-      color: "#FCFCFC",
-    }),
-  };
 
 
   return (
@@ -209,10 +78,11 @@ const AddForm = ({ onClose }) => {
         <Form>
           <div>
           <Dropdown
+          modal={true}
     value="Categories"
     set={setSelectedCategory}
     selectedOption={selectedCategory}
-    arr={categories}
+    arr={categories.slice(1,categories.length)}
   />
  {selectedCategory === "verb" &&    <>
           <WrapRadioBtn>
@@ -279,7 +149,7 @@ const AddForm = ({ onClose }) => {
             </WrapFormalModal>
             <WrapBtnModal>
               <ModalBtn type="submit">Save</ModalBtn>
-              <ModalBtnCancel type="button" onClick={onCancel}>
+              <ModalBtnCancel type="button" onClick={()=> onClose()}>
                 Cancel
               </ModalBtnCancel>
             </WrapBtnModal>

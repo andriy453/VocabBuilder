@@ -5,7 +5,7 @@ export const Backdrop = styled.div`
   top: 50%;
   left: 50%;
   width: 100%;
-  height:  100vh;
+  height: 100vh;
   background-color: rgba(33, 33, 33, 0.12);
   transform: translate(-50%, -50%);
   overflow: auto;
@@ -13,6 +13,7 @@ export const Backdrop = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 `;
 
 export const StyledModal = styled.div`
@@ -47,6 +48,12 @@ export const StyledCloseButton = styled.button`
 `;
 
 export const Svg = styled.svg`
+  width: 24px;
+  height: 24px;
+   @media screen and (min-width: 768px) {
+  width: 32px;
+  height: 32px;
+   }
   stroke: rgba(252, 252, 252, 1);
   transition: all 250ms linear;
   &:hover,

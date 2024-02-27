@@ -9,13 +9,36 @@ export const Table = styled.table`
   border-radius: 30px;
   background: #fff;
 
+
   @media screen and (min-width: 768px) {
     border: 18px solid #fff;
     border-radius: 15px;
   }
+  tbody{
+    tr{
+      td:nth-child(3){
+        display: ${(props) => props.$id === "recommend" ?"table-cell":"none" };
+          @media screen and (min-width: 768px) {
+            display: table-cell;
+          }
+      }
+    }
+  }
+  thead{
+    tr{
+      th:nth-child(3){
+        display: ${(props) => props.$id === "recommend" ? "table-cell":"none" };
+          @media screen and (min-width: 768px) {
+            display: table-cell;
+          }
+      }
+    }
+  }
+
 `;
 
 export const Th = styled.th`
+
   color: #121417;
   font-size: 16px;
   line-height: normal;
@@ -36,6 +59,7 @@ export const Th = styled.th`
 font-weight: 500;
 line-height: 22px;
   }
+
 `;
 
 export const IconWrapper = styled.span`
@@ -112,6 +136,14 @@ export const Td = styled.td`
   }
   @media screen and (min-width: 1440px) {
     font-size: 20px;
+  }
+  div{
+    p{
+      display: none;
+      @media screen and (min-width: 768px) {
+        display: block;
+      }
+    }
   }
 `;
 

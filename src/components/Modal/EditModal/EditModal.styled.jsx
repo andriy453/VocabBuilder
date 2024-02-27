@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Field } from "formik";
+import styled from 'styled-components';
+import { Field } from 'formik';
 
 export const TitleModal = styled.h2`
   color: #fcfcfc;
@@ -7,7 +7,7 @@ export const TitleModal = styled.h2`
   line-height: 1.2;
   letter-spacing: -0.8px;
   margin-bottom: 20px;
-  font-weight:600;
+  font-weight: 600;
 `;
 
 export const TextModal = styled.p`
@@ -146,18 +146,18 @@ export const WrapBtnModal = styled.div`
 export const StyledRadio = styled.input`
   appearance: none;
   margin: 0;
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
   border: 2px solid rgba(252, 252, 252, 0.2);
   border-radius: 50%;
   transition: all 0.1s ease-in-out;
   cursor: pointer;
   &::after {
-    content: "";
+    content: '';
     display: block;
     border-radius: 50%;
-    width: 11px;
-    height: 11px;
+    width: 16px;
+    height: 16px;
     margin: 2px;
   }
   &:checked::after {
@@ -174,21 +174,12 @@ export const StyledRadio = styled.input`
 export const StyledLabel = styled.label`
   color: #fcfcfc;
   display: flex;
+  align-items: center;
   font-size: 14px;
   line-height: normal;
   cursor: pointer;
 
   gap: 8px;
-  /* &::after {
-    margin-left: 8px;
-    width: 12px;
-    height: 15px;
-    display: inline-block;
-    content: " ";
-    -webkit-mask: url("/lock.svg") no-repeat 50% 50%;
-    -webkit-mask-size: cover;
-    background-color: yellowgreen;
-  } */
 `;
 export const WrapRadioBtn = styled.div`
   display: flex;
@@ -198,13 +189,23 @@ export const WrapRadioBtn = styled.div`
 `;
 
 export const PictureModal = styled.picture`
+  display: block;
   width: 152px;
   height: 121px;
+  @media screen and (min-width: 768px) {
+    width: 212px;
+    height: 179px;
+  }
 `;
 
 export const Img = styled.img`
+display: block;
   width: 152px;
   height: 121px;
+  @media screen and (min-width: 768px) {
+    width: 212px;
+    height: 179px;
+  }
   position: absolute;
   bottom: 0;
   right: 0;

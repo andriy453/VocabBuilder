@@ -35,7 +35,7 @@ function Modal({ state = false, children, onClose, top }) {
     <Backdrop onClick={onOverlayClose} top={top}>
       <StyledModal>
         <StyledCloseButton type="button" onClick={onClose}>
-          <Svg width="18" height="18">
+          <Svg>
             <use href={sprite + "#icon-x"} />
           </Svg>
         </StyledCloseButton>

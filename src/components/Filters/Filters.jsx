@@ -23,6 +23,7 @@ function Filters({currentPage,id,modal}) {
     const dispatch = useDispatch();
     const Categories = useSelector(StateCategories);
     const [filterWord, setFilterWord] = useState('');
+    const [filterWordFech, setFilterWordFech] = useState('');
     const [selectCategories, setCategories] = useState('');
     const [selectedVerbType, setSelectedVerbType] = useState("");
 
@@ -34,7 +35,7 @@ function Filters({currentPage,id,modal}) {
           page: currentPage,
           category: selectCategories,
           verb: selectedVerbType,
-          search: filterWord,
+          search: filterWordFech,
         })
       );
     }
@@ -44,11 +45,16 @@ function Filters({currentPage,id,modal}) {
           page: currentPage,
           category: selectCategories,
           verb: selectedVerbType,
-          search: filterWord,
+          search: filterWordFech,
         })
       );
     }
-  }, [dispatch, id, currentPage, selectedVerbType, filterWord, selectCategories]);
+  }, [dispatch, id, currentPage, selectedVerbType, filterWordFech, selectCategories]);
+   const  hendleOnChange = (e) =>{
+     setFilterWord(e.target.value.trim())
+     setTimeout(()=>setFilterWordFech(e.target.value.trim()),300)
+
+  }
   return (
 <>
 { modal && 
@@ -56,7 +62,7 @@ function Filters({currentPage,id,modal}) {
     <InputWord
       type="text"
       placeholder="Find the word"
-      onChange={(e) => setTimeout(setFilterWord(e.target.value), 300)}
+      onChange={(e) =>hendleOnChange(e)}
       value={filterWord}
     />
     <SvgSearch>

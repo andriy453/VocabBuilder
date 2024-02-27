@@ -80,7 +80,6 @@ const RecommendPage = () => {
     { Header: "Category", accessor: "category" },
     { Header: "", accessor: "..." },
   ];
-  console.log(recommend)
   return (
     <Container>
     <Dashboard currentPage={currentPage} id='recommend'/>
