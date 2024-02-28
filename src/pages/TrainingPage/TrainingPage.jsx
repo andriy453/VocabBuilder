@@ -51,7 +51,6 @@ const TrainingPage = () => {
       setDisable(true);
     }
   };
-  console.log(tasks);
   return (
     <>
       <WrapTraining>

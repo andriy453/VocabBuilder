@@ -40,8 +40,6 @@ const TrainingRoom = ({
 
   const isUaTask = currentTask.task === "ua";
   const isEnTask = currentTask.task === "en";
-  console.log(currentTask.task
-    )
   const dispatch = useDispatch();
 
   const openModal = () => {
@@ -92,9 +90,7 @@ const TrainingRoom = ({
     setUaTranslation("");
     setEnTranslation("");
   };
-  useEffect(() => {
-    console.log("use", answers);
-  }, [answers]);
+
 
   const handleSaveClick = () => {
     if (answers.length === currentTaskIndex) {
