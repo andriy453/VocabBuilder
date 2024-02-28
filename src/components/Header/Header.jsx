@@ -12,6 +12,7 @@ import {
   BurgerPicture,
   BurgerImg,
   LinkContainer,
+  BtnBurger,
 } from './Header.styled';
 import sprite from 'assets/sprite.svg';
 import { useState } from 'react';
@@ -49,17 +50,17 @@ export const Header = () => {
             </LinkContainer>
 
             <BarConteiner>
-              <UserBar userName={userName} />
-              <button onClick={() => setBurger('opened')}>
+              <UserBar userName={userName}  svg={true}/>
+              <BtnBurger onClick={() => setBurger('opened')}>
                 <IconWrapperNav>
                   <use href={`${sprite}#icon-Nav`} />
                 </IconWrapperNav>
-              </button>
+              </BtnBurger>
             </BarConteiner>
           </>
         ) : undefined}
         <Burger display={burger}>
-          <UserBar userName={userName} iconcolor={true} />
+          <UserBar userName={userName} iconcolor={true}  svg={false}/>
           <ClosedBurger onClick={() => setBurger('closed')}>
             <IconWrapperx>
               <use href={`${sprite}#icon-x`} />

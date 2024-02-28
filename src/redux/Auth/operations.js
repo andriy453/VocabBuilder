@@ -70,7 +70,6 @@ export const register = createAsyncThunk(
     'auth/logout',
     async (_, { rejectWithValue }) => {
       try {
-        await instance.post('/users/logout');
         clearAuthHeader();
       } catch (error) {
         notifix(error.message, error.response?.status);

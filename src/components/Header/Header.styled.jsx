@@ -71,15 +71,18 @@ export const BarConteiner = styled.div`
     @media screen and (min-width: 768px) {
           gap: 28px;
     }
-  button {
-    background-color: transparent;
+
+`;
+
+export const BtnBurger = styled.button`
+      background-color: transparent;
     border: none;
     padding: 0px;
         @media screen and (min-width: 1440px) {
         display: none;
         }
-  }
-`;
+`
+
 
 export const Burger = styled.div`
   position: fixed;

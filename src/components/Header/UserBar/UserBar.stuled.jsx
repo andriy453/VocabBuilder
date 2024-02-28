@@ -1,3 +1,4 @@
+
 import styled from 'styled-components';
 
 export const ContainerUser = styled.div`
@@ -47,3 +48,24 @@ export const UserSvg = styled.svg`
     height: 24px; 
   }
 `;
+
+
+export const SvgLogout = styled.svg`
+  width:30px ;
+  height:30px ;
+  stroke: black;
+
+`
+
+export const BtnLogOut = styled.button`
+  display: ${(props) =>
+    props.svg ?   'none' :"block"} ;
+      @media screen and (min-width: 1440px) {
+        display: block;
+      }
+      background-color:transparent;
+      border: none;
+      cursor: pointer;
+`
+
+
