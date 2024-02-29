@@ -16,6 +16,9 @@ export const Table = styled.table`
   }
   tbody{
     tr{
+      td:nth-child(5){
+        padding: 0px;
+      }
       td:nth-child(3){
         display: ${(props) => props.$id === "recommend" ?"table-cell":"none" };
           @media screen and (min-width: 768px) {
@@ -157,6 +160,12 @@ export const Button = styled.button`
   align-items: flex-end;
   padding: 0;
   position: relative;
+  width: 100%;
+  height: 100%;
+  @media screen and (min-width: 768px) {
+    padding: 22px;
+  }
+  padding: 18px;
   &:hover,
   &:focus {
     opacity: 0.5;

@@ -46,7 +46,7 @@ const AddForm = ({ onClose }) => {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.Word.categories);
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [selectedVerbType, setSelectedVerbType] = useState("");
+  const [selectedVerbType, setSelectedVerbType] = useState(false);
 
   const onSubmit = (values, { resetForm }) => {
     dispatch(
@@ -90,8 +90,8 @@ const AddForm = ({ onClose }) => {
               <StyledRadio
                 type="radio"
                 value="false"
-                checked={selectedVerbType === "false"}
-                onChange={(e)=> setSelectedVerbType(e.target.value)}
+                checked={selectedVerbType === false}
+                onChange={()=> setSelectedVerbType(false)}
               />
               Regular
             </StyledLabel>
@@ -99,8 +99,8 @@ const AddForm = ({ onClose }) => {
               <StyledRadio
                 type="radio"
                 value="true"
-                checked={selectedVerbType === "true"}
-                onChange={(e)=> setSelectedVerbType(e.target.value)}
+                checked={selectedVerbType === true}
+                onChange={()=> setSelectedVerbType(true)}
               />
               Irregular
             </StyledLabel>

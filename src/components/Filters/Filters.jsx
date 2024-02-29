@@ -52,7 +52,7 @@ function Filters({currentPage,id,modal}) {
   }, [dispatch, id, currentPage, selectedVerbType, filterWordFech, selectCategories]);
    const  hendleOnChange = (e) =>{
      setFilterWord(e.target.value.trim())
-     setTimeout(()=>setFilterWordFech(e.target.value.trim()),300)
+     setTimeout(()=>setFilterWordFech(e.target.value.trim()),700)
 
   }
   return (

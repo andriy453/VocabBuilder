@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 const PublicRoute = ({ component: Component, redirectTo }) => {
 
 const isLoggedIn =  useSelector(selectIsLoggedIn)
-console.log(isLoggedIn)
   return !isLoggedIn ?  Component : <Navigate to={redirectTo} /> ;
 };
 

@@ -4,10 +4,12 @@ import DictionaryPage from './pages/DictionaryPage/DictionaryPage';
 import RecommendPage from './pages/RecommendPage/RecommendPage';
 import TrainingPage from './pages/TrainingPage/TrainingPage';
 import ErrorPage from 'pages/ErrorPage/ErrorPage';
+import LoginPage from './pages/AuthPage/LoginPage';
+import RegisterPage from './pages/AuthPage/RegisterPage';
 import { AppWrapper } from './App.styled';
-import AuthPage from './pages/AuthPage/AuthPage';
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { Navigate } from 'react-router-dom';
 
 
 
@@ -26,8 +28,10 @@ useEffect(() => {
   return (
     <AppWrapper> 
       <Routes>
-        <Route path="/" element={<SharedLayout />}>
-          <Route  path="/:id" index element={ <PublicRoute redirectTo="/dictionary" component={<AuthPage />} /> } />
+        <Route element={<SharedLayout /> }>
+          <Route index element={<Navigate to="login" />}/>
+          <Route  path="/login"  element={ <PublicRoute redirectTo="/dictionary" component={<LoginPage />} /> } />
+          <Route  path="/register"  element={ <PublicRoute redirectTo="/dictionary" component={<RegisterPage />} /> } />
           <Route path="/dictionary" element={<PrivateRoute redirectTo="/login" component={<DictionaryPage />} /> } />
           <Route path="/recommend" element={<PrivateRoute redirectTo="/login" component={<RecommendPage />} /> }/>
           <Route path="/training" element={<PrivateRoute redirectTo="/login" component={<TrainingPage />} /> }/>

@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { instance } from "../Auth/operations";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { redirect } from "react-router-dom"
 
 const notifix = (errorCode) => {
     let errorMessage = "An unexpected error occurred. Please try again.";
@@ -185,11 +186,15 @@ export const wordsAnswers = createAsyncThunk(
   "words/answers",
   async (answers, { rejectWithValue }) => {
     try {
+        
       const { data } = await instance.post("/words/answers", answers);
-      return data;
-    } catch (error) {
-             notifix(error.message, error.response?.status);
-      return rejectWithValue(error.message);
+
+      return  data;
+
+    } catch ({message}) {
+      Notify.failure(message);
+
+      return rejectWithValue(message);
     }
   }
 );

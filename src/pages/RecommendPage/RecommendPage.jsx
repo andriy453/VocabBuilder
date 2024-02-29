@@ -13,7 +13,20 @@ import {
   WrapPagination,
   SvgStepNext,
 } from '../../components/WordsTable/WordsTable.styled';
+import {
+  Picture,
+  TextTraining,
+  Title,
+  WrapTrainingAppsent,
+  WrapTrainingAppsentAll,
+  WrapTrainingAppsentText,
+} from "../TrainingPage/TrainingPage.style";
 import sprite from '../../assets/sprite.svg'
+import imgTrainingPageMobile1x from "../../assets/img-trainingPage-Mobile-1x.png";
+import imgTrainingPageMobile2x from "../../assets/img-trainingPage-Mobile-2x.png";
+import imgTrainingPagetablet1x from "../../assets/img-trainingPage-tablet-1x.png";
+import imgTrainingPagetablet2x from "../../assets/img-trainingPage-tablet-2x.png";
+
 const RecommendPage = () => {
   const dispatch = useDispatch();
   const recommend = useSelector(selectWords);
@@ -81,10 +94,10 @@ const RecommendPage = () => {
     { Header: "", accessor: "..." },
   ];
   return (
-    <Container>
+    <Container height={totalPages > 0 }>
     <Dashboard currentPage={currentPage} id='recommend'/>
     <WordsTable columns={columnsRecommend} data={recommend} id='recommend'/>
-    {totalPages > 0 && (
+    {totalPages > 0 ? (
           <WrapPagination>
             <ButtonPagination onClick={() => handlePageChange(1)}>
               <SvgStep>
@@ -107,7 +120,43 @@ const RecommendPage = () => {
                 <use href={sprite + "#icon-First"}></use>
               </SvgStepNext>
             </ButtonPagination>
-          </WrapPagination>)}
+          </WrapPagination>
+          
+          )
+          :
+          (
+            <WrapTrainingAppsentAll>
+              <WrapTrainingAppsent>
+                <WrapTrainingAppsentText>
+                  <Title>We don't have a single word to learn right now. </Title>
+                  <TextTraining>
+                    Please create a word to start the workout. We want to improve
+                    your vocabulary and develop your knowledge, so please share
+                    the words you are interested in adding to your study.
+                  </TextTraining>
+                </WrapTrainingAppsentText>
+              </WrapTrainingAppsent>
+              <Picture>
+                  <source
+                    srcSet={imgTrainingPagetablet2x}
+                    media="(min-width: 767px) and (min-resolution: 2dppx)"
+                  />
+                  <source
+                    srcSet={imgTrainingPagetablet1x}
+                    media="(min-width: 767px)"
+                  />
+                  <source
+                    srcSet={imgTrainingPageMobile2x}
+                    media="(max-width: 767px) and (min-resolution: 2dppx)"
+                  />
+                  <source
+                    srcSet={imgTrainingPageMobile1x}
+                    media="(max-width: 767px)"
+                  />
+                  <img src={imgTrainingPageMobile1x} alt="User" />
+                </Picture>
+            </WrapTrainingAppsentAll>
+          )}
     </Container>
   );
 };

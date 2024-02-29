@@ -12,6 +12,7 @@ import {
   BtnCancel,
   BtnNext,
   InputTranslate,
+  InputTranslatee,
   LabelTranslate,
   SvgArrow,
   SvgMap,
@@ -61,36 +62,39 @@ const TrainingRoom = ({
 
   const handleNextClick = () => {
     if (uaTranslation === "" && enTranslation === "") {
-      return Notify.info("Check your input");
+
+      onNextClick({ ua: null, en: null });
     }
-    onNextClick({ ua: uaTranslation, en: enTranslation });
-    const updatedAnswers = isUaTask
-      ? [
-          ...answers,
-          {
-            _id: currentTask._id,
-            ua: uaTranslation,
-            en: currentTask.en,
-            task: currentTask.task,
-          },
-        ]
-      : isEnTask
-      ? [
-          ...answers,
-          {
-            _id: currentTask._id,
-            ua: currentTask.ua,
-            en: enTranslation,
-            task: currentTask.task,
-          },
-        ]
-      : answers;
+else{
+  onNextClick({ ua: uaTranslation, en: enTranslation });
+  const updatedAnswers = isUaTask
+    ? [
+        ...answers,
+        {
+          _id: currentTask._id,
+          ua: uaTranslation,
+          en: currentTask.en,
+          task: currentTask.task,
+        },
+      ]
+    : isEnTask
+    ? [
+        ...answers,
+        {
+          _id: currentTask._id,
+          ua: currentTask.ua,
+          en: enTranslation,
+          task: currentTask.task,
+        },
+      ]
+    : answers;
 
-    setAnswers(updatedAnswers);
-    setUaTranslation("");
-    setEnTranslation("");
+  setAnswers(updatedAnswers);
+  setUaTranslation("");
+  setEnTranslation("");
+}
   };
-
+   
 
   const handleSaveClick = () => {
     if (answers.length === currentTaskIndex) {
@@ -141,21 +145,25 @@ const TrainingRoom = ({
       <WrapTranslator>
         <WrapInput>
           <LabelTranslate>
-            {isUaTask ? (
-              <InputTranslate
+
+          {isEnTask ? (
+              <InputTranslatee
+                placeholder={"Please translate"}
+                type="text"
+                value={enTranslation}
+                onChange={handleTranslationChange}
+                disabled={false}
+              />
+            ) : (
+
+              <InputTranslatee
                 placeholder={"Введіть переклад"}
                 type="text"
                 value={uaTranslation}
                 onChange={handleTranslationChange}
                 disabled={false}
               />
-            ) : (
-              <InputTranslate
-                placeholder={"Please translate"}
-                type="text"
-                value={currentTask.ua}
-                disabled={true}
-              />
+              
             )}
             <WrapLang>
               <SvgMap>
@@ -166,26 +174,26 @@ const TrainingRoom = ({
             <BtnNext onClick={handleNextClick} disabled={disable}>
               Next
               <SvgArrow>
-                <use href={sprite + "#icon-linie"}></use>
+                <use href={sprite + "#icon-switch-horizontal-01-1"}></use>
               </SvgArrow>
             </BtnNext>
           </LabelTranslate>
         </WrapInput>
         <WrapInput>
           <LabelTranslate>
-            {isEnTask ? (
+          {isUaTask ? (
               <InputTranslate
-                placeholder={"Please translate"}
-                type="text"
-                value={enTranslation}
-                onChange={handleTranslationChange}
-                disabled={false}
-              />
+              placeholder={"Please translate"}
+              type="text"
+              value={currentTask.en}
+              disabled={true}
+            />
+
             ) : (
               <InputTranslate
                 placeholder={"Please translate"}
                 type="text"
-                value={currentTask.en}
+                value={currentTask.ua}
                 disabled={true}
               />
             )}
@@ -203,7 +211,7 @@ const TrainingRoom = ({
           Save
         </BtnAdd>
         {isOpen && (
-          <Modal onClose={closeModal} isOpen={isOpen}>
+          <Modal onClose={closeModal} isOpen={isOpen} WellDoneModal={true}>
             <WellDoneModal />
           </Modal>
         )}

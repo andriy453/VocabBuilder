@@ -3,7 +3,8 @@ import { Backdrop ,StyledModal,StyledCloseButton,Svg} from './Modal.stuled';
 import { useEffect, useLayoutEffect } from 'react';
 import sprite from '../../assets/sprite.svg'
 
-function Modal({ state = false, children, onClose, top }) {
+
+function Modal({ state = false, children, isOpen,onClose, top,WellDoneModal }) {
   useEffect(() => {
     return window.addEventListener('keydown', keyDown);
     // eslint-disable-next-line react-hooks/exhaustive-deps

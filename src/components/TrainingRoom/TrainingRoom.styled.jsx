@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
-export const LabelTranslate = styled.label``;
+export const LabelTranslate = styled.label`
+`;
+export const InputTranslatee = styled.input`
 
-export const InputTranslate = styled.input`
+
   background: transparent;
   border: none;
   outline: none;
@@ -18,7 +20,10 @@ export const InputTranslate = styled.input`
   line-height: 1.5;
   height: 195px;
   max-width: 260px;
-  border-bottom: 1px solid #dbdbdb;
+  padding-bottom: 160px;
+
+  border-bottom:1px solid #dbdbdb;
+
   &:hover,
   &:focus {
     opacity: 0.4;
@@ -30,6 +35,62 @@ export const InputTranslate = styled.input`
 
     font-size: 20px;
     line-height: 1.5;
+
+  }
+   @media screen and (min-width: 420px) {
+    height: 195px;
+    width: 403px;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding-bottom: 205px;
+    height: 260px;
+    width: calc(1240px / 2 - 22px);
+    max-height: 260px;
+    max-width: calc(1240px / 2 - 22px);
+  }
+  @media screen and (min-width: 1440px) {
+    padding-bottom: 240px;
+    height: 338px;
+    border-right: 1px solid #dbdbdb;
+    width: calc(1240px / 2 - 22px);
+    border-bottom:none;
+  }
+`
+
+export const InputTranslate = styled.input`
+
+
+  background: transparent;
+  border: none;
+  outline: none;
+
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  border-radius: 8px 0px 0px 0px;
+
+  background: #fcfcfc;
+  color: #121417;
+  font-size: 20px;
+  line-height: 1.5;
+  height: 195px;
+  max-width: 260px;
+  padding-bottom: 160px;
+
+
+  &:hover,
+  &:focus {
+    opacity: 0.4;
+    transition: all 250ms linear;
+  }
+
+  &::placeholder {
+    color: #121417;
+
+    font-size: 20px;
+    line-height: 1.5;
+
   }
 
   @media screen and (min-width: 420px) {
@@ -38,15 +99,15 @@ export const InputTranslate = styled.input`
   }
 
   @media screen and (min-width: 768px) {
+    padding-bottom: 205px;
     height: 260px;
     width: calc(1240px / 2 - 22px);
     max-height: 260px;
     max-width: calc(1240px / 2 - 22px);
   }
   @media screen and (min-width: 1440px) {
+    padding-bottom: 240px;
     height: 338px;
-    border-bottom: none;
-    border-right: 1px solid #dbdbdb;
     width: calc(1240px / 2 - 22px);
   }
 `;
@@ -89,8 +150,11 @@ export const WrapLang = styled.div`
   align-items: flex-end;
   gap: 8px;
   position: absolute;
-  top: 11px;
+ bottom: 18px;
   right: 22px;
+  @media screen and (min-width: 768px) {
+    top: 11px;
+  }
 `;
 export const WrapBtn = styled.div`
   display: flex;

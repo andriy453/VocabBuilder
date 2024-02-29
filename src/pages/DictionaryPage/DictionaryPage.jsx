@@ -146,7 +146,7 @@ const DictionaryPage = () => {
 
 
   return (
-    <Container>
+    <Container height={totalPages > 0 }>
     <Dashboard currentPage={currentPage} id='dictionary'/>
     <WordsTable columns={columnsDictionary} data={dictionary} id='dictionary'/>
     {totalPages2 > [] ? (

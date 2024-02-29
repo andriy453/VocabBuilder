@@ -19,6 +19,7 @@ export const Dropdownheader = styled.div`
 
   cursor: pointer;
   border-radius: 14px;
+  min-width: 164px;
 `;
 export const DropdownText = styled.p`
   color: var(--secondary);

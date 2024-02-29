@@ -27,7 +27,7 @@ function Login({id}) {
     password: Yup.string()
       .min(6, 'Password must be at least 6 characters long')
       .max(16, 'Password can be at most 16 characters long')
-      .matches(/^(?=.*[a-zA-Z]{6})(?=.*\d)[a-zA-Z\d]{7}$/, 'Error password')
+      .matches(/^(?=.*[a-zA-Z]{6})(?=.*\d)[a-zA-Z\d]{7}$/, 'Password must contain only English letters at least one digit, one lowercase letter, and one uppercase letter')
       .required('Password is required'),
   });
 

@@ -13,7 +13,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 
-const rootReducer = combineReducers({
+const combinedReducer = combineReducers({
   Auth: AuthReducer,
   Word:WordReducer,
 });
@@ -22,6 +22,13 @@ const persistConfig = {
   key: 'Auth',
   storage,
   whitelist: 'Auth',
+};
+
+const rootReducer = (state, action) => {
+  if (action.type === 'Auth/logout') {
+    state = undefined;
+  }
+  return combinedReducer(state, action);
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
